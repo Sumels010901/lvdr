@@ -6,7 +6,7 @@ As for studying purpose only, I have an idea of creating a webapp/Android/IOS ap
 ### Main features
 Okay, let's look into what I want (or ideas): <br>
 - Date Count (Of course, any lover don't want that?) <br>
-- Suggest meaningful date for lovers.
+- Suggest meaningful date/gift for lover (I suggest you :>).
 - Simple messaging with your lovers/matches.
 - You can order your lover to do something for you, or request for a date out.
 - You and your lover schedule will be auto added to yours phone calender, and alarm. (Will this be legal, I don't want to steal your personal data or something)
