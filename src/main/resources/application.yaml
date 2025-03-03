@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: lvdr
+  datasource:
+    url: jdbc:mysql://localhost:3306/lvdr
+    username: root
+    password: 01092001
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+
