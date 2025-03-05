@@ -1,13 +1,16 @@
 package com.sumels.lvdr.service.impl;
 
+import com.sumels.lvdr.exception.DuplicateEntryException;
 import com.sumels.lvdr.exception.NotFoundException;
-import com.sumels.lvdr.model.User;
+import com.sumels.lvdr.entity.User;
 import com.sumels.lvdr.repository.UserRepository;
 import com.sumels.lvdr.service.UserService;
+import com.sumels.lvdr.utils.CodeGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -18,12 +21,19 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User createUser(User user) {
+        user.setCode(CodeGenerator.generateCode(8));
+        if (repo.findByUsername(user.getUsername()).isPresent()) {
+            throw new DuplicateEntryException("Username existed");
+        }
+        if (repo.findByEmail(user.getEmail()).isPresent()) {
+            throw new DuplicateEntryException("Email used");
+        }
         return repo.save(user);
     }
 
     @Override
-    public List<User> getAllUsers() {
-        return repo.findAll();
+    public Page<User> getAllUsers(Pageable pageable) {
+        return repo.findAll(pageable);
     }
 
     @Override

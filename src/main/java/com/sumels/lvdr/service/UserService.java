@@ -1,17 +1,17 @@
 package com.sumels.lvdr.service;
 
-import com.sumels.lvdr.model.User;
+import com.sumels.lvdr.entity.User;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.Optional;
 
 @Service
 public interface UserService {
 
     User createUser(User user);
-    List<User> getAllUsers();
+    Page<User> getAllUsers(Pageable pageable);
     User getByUsername(String username);
+    User getById(Long id);
     User updateUser(User user);
     User softDeleteUser(User user);
 }

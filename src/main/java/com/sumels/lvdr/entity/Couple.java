@@ -1,4 +1,4 @@
-package com.sumels.lvdr.model;
+package com.sumels.lvdr.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;

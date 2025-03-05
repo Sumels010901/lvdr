@@ -1,14 +1,13 @@
-package com.sumels.lvdr.model;
+package com.sumels.lvdr.entity;
 
+import com.sumels.lvdr.enums.Gender;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
-import org.hibernate.annotations.Generated;
 
 import java.sql.Blob;
 import java.sql.Date;
-import java.util.List;
 
 @Data
 @Entity
@@ -32,7 +31,9 @@ public class User {
     @Column(columnDefinition = "varchar(50)", nullable = false, unique = true)
     private String email;
     private Date dob;
-    private String gender;
+
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
     private String description;
     private Blob avatar;
     private String code;
