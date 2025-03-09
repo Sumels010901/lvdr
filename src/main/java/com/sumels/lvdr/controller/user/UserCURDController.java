@@ -77,6 +77,27 @@ public class UserCURDController {
             response.setMessage("Must enter at least one field");
             return response;
         }
+    }
 
+    @GetMapping("/regenerateCode")
+    public ApiMessageDto<User> regenerateCode(@RequestParam(required = false) String username,
+                                       @RequestParam(required = false) Long id) {
+        ApiMessageDto<User> response = new ApiMessageDto<>();
+        if(id != null) {
+            User user = userService.getById(id);
+            user = userService.renewCode(user);
+            response.setData(user);
+            response.setMessage("New code applied");
+            return response;
+        } else if (username != null) {
+            User user = userService.getByUsername(username);
+            user = userService.renewCode(user);
+            response.setData(user);
+            response.setMessage("New code applied");
+            return response;
+        } else {
+            response.setMessage("Must enter at least one field");
+            return response;
+        }
     }
 }

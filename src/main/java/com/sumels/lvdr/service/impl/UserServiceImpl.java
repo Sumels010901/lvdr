@@ -57,4 +57,10 @@ public class UserServiceImpl implements UserService {
         user.setIsDelete(true);
         return repo.save(user);
     }
+
+    @Override
+    public User renewCode(User user) {
+        user.setCode(CodeGenerator.generateCode(8));
+        return repo.save(user);
+    }
 }

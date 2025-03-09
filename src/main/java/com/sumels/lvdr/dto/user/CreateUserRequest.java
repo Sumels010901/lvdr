@@ -12,7 +12,6 @@ public class CreateUserRequest {
     private String email;
     private String gender;
     private String description;
-    private String code;
     private Date dob;
     private Boolean available;
 }

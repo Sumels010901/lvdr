@@ -14,4 +14,5 @@ public interface UserService {
     User getById(Long id);
     User updateUser(User user);
     User softDeleteUser(User user);
+    User renewCode(User user);
 }
